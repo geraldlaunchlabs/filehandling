@@ -135,8 +135,8 @@
 }
 
 -(IBAction)fileRead:(id)sender {
-    data = [fileManager contentsAtPath:path1.text];
-    console.text = [NSString stringWithFormat:@"%@\n\n(%@) :\n",console.text,data];
+    NSString *dataTxt = [NSString stringWithContentsOfFile:path1.text encoding:NSUTF8StringEncoding error:nil];
+    console.text = [NSString stringWithFormat:@"%@\n\n(%@) :\n",console.text,dataTxt];
     [self scrollToBottom];
 }
 
@@ -150,7 +150,7 @@
         writeFlag = !writeFlag;
     } else {
         if(path1.text) {
-            path1.text = [NSString stringWithFormat:@"/Users/lldm/Documents/WrittenFiles/%@",path1.text];
+            path1.text = [NSString stringWithFormat:@"/Users/lldm/Documents/%@",path1.text];
             data = [console.text dataUsingEncoding:NSUTF8StringEncoding];
             [fileManager createFileAtPath:path1.text contents:data attributes:nil];
             path1.placeholder = @"File Path 1";
@@ -159,7 +159,7 @@
             path1.text=@"";
             writeFlag = !writeFlag;
         } else {
-            path1.text=@"WrittenFile.txt";
+            path1.text=@"WrittenFile.rtf";
         }
     }
     [self scrollToBottom];
