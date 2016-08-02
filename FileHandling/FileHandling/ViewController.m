@@ -28,39 +28,38 @@
     // Dispose of any resources that can be recreated.
 }
 
-
 - (IBAction)onPathChange:(id)sender {
     if(writeFlag) {
     } else if(![path1.text isEqual:@""] && ![path2.text isEqual:@""]) {
         path2.hidden = NO;
-        exist.hidden = YES;
-        compare.hidden = NO;
-        WRE.hidden = YES;
-        move.hidden = NO;
-        copy.hidden = NO;
-        remove.hidden = YES;
-        read.hidden = YES;
-        write.hidden = YES;
+        exist.enabled = NO;
+        compare.enabled = YES;
+        WRE.enabled = NO;
+        move.enabled = YES;
+        copy.enabled = YES;
+        remove.enabled = NO;
+        read.enabled = NO;
+        write.enabled = NO;
     } else if(![path1.text isEqual:@""]) {
         path2.hidden = NO;
-        exist.hidden = NO;
-        compare.hidden = YES;
-        WRE.hidden = NO;
-        move.hidden = YES;
-        copy.hidden = YES;
-        remove.hidden = NO;
-        read.hidden = NO;
-        write.hidden = YES;
+        exist.enabled = YES;
+        compare.enabled = NO;
+        WRE.enabled = YES;
+        move.enabled = NO;
+        copy.enabled = NO;
+        remove.enabled = YES;
+        read.enabled = YES;
+        write.enabled = NO;
     } else {
         path2.hidden = YES;
-        exist.hidden = YES;
-        compare.hidden = YES;
-        WRE.hidden = YES;
-        move.hidden = YES;
-        copy.hidden = YES;
-        remove.hidden = YES;
-        read.hidden = YES;
-        write.hidden = NO;
+        exist.enabled = NO;
+        compare.enabled = NO;
+        WRE.enabled = NO;
+        move.enabled = NO;
+        copy.enabled = NO;
+        remove.enabled = NO;
+        read.enabled = NO;
+        write.enabled = YES;
     }
 }
 
